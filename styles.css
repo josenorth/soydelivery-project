@@ -81,17 +81,41 @@ header {
 
 .tech-grid {
     display: grid;
-    grid-template: 100vh / 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, 500px);
+    min-height: 100vh;
+    justify-content: center;
+    grid-template-areas: 
+    "tech order";
     gap: 5px;
 }
 
+@media (min-width: 320px) and (max-width: 480px) {
+    .tech-grid{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "order"
+        "tech";
+    }
+}
+
+/* @media only screen and (max-width: 1280px) {
+    .tech-grid {
+        display: grid;
+        grid-template: 100vh / 1fr;
+        gap: 5px;
+    } 
+} */
+
 .tech-container {
+    grid-area: tech;
     border-radius: 10px;
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    flex: 1 1 300px;
+
 }
 
 .tech-container h1 {
@@ -99,11 +123,12 @@ header {
     max-width: 500px;
     font-family: "Karla", sans-serif;
     font-weight: 800;
-    font-size: 40px;
+    font-size: 2em;
 }
 
 .order-container {
     border-radius: 10px;
+    grid-area: order;
 }
 
 .form-container {
@@ -115,6 +140,7 @@ header {
     flex-flow: column nowrap;
     padding: 20px;
     position: relative;
+    flex: 1 1 300px;
 }
 
 .form-description {
@@ -264,6 +290,8 @@ button:focus-visible{
     margin: 0 150px;
 }
 
+
+
 .services-features-container h2{
     font-size: 32px;
     font-weight: 800;
@@ -275,6 +303,14 @@ button:focus-visible{
     display: grid;
     grid-template: repeat(2, 1fr) / repeat(3, 1fr);
     gap: 20px;
+}
+
+@media only screen and (max-width: 1280px) {
+    .services-grid {
+        display: grid;
+        grid-template: 1fr / 1fr;
+        gap: 20px;
+    } 
 }
 
 .card-services{
@@ -391,13 +427,15 @@ footer{
 .social-networks{
     display: flex;
     flex-flow: column nowrap;
-    justify-content: start;
     align-items: center;
     padding-bottom: 25px;
 }
 .social-networks-icons{
     padding-top: 15px;
     height: 20%;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
 }
 
 .social-networks span{
