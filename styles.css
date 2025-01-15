@@ -31,21 +31,19 @@ header {
 .header-container {
     display: flex;
     align-items: center;
-    /* Centra verticalmente los elementos */
     justify-content: space-between;
-    /* Centra horizontalmente los elementos */
     width: 100%;
     max-width: 1280px;
     height: 100%;
-    /* Asegura que el contenedor ocupe todo el alto del header */
     margin: 0 auto;
 }
 
 .header-container a {
     flex-shrink: 0;
-    /* Evita que el logo se reduzca */
 }
-
+.header-container a img {
+    width: 80%;
+}
 .header-container .nav-links ul {
     display: flex;
     justify-content: space-between;
@@ -68,7 +66,19 @@ header {
     font-weight: 600;
     padding: 0;
 }
+.bars-icon{
+    display: none;
+    color: white;
+}
 
+@media (min-width: 320px) and (max-width: 1024px) {
+    .nav-links{
+        display: none;
+    }
+    .bars-icon{
+        display: block;
+  }
+}
 @media only screen and (max-width: 1280px) {
     .header-container {
         padding-left: 1rem;
@@ -109,26 +119,20 @@ header {
 .tech-container {
     grid-area: tech;
     border-radius: 10px;
-    width: 100%;
+    width: 90%;
+    max-width: 500px;
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1 1 300px;
-
 }
 
 .tech-container h1 {
-    width: 450px;
+    width: 90%;
     max-width: 500px;
     font-family: "Karla", sans-serif;
     font-weight: 800;
     font-size: 2em;
-}
-
-.order-container {
-    border-radius: 10px;
-    grid-area: order;
 }
 
 .form-container {
@@ -200,16 +204,20 @@ button:focus-visible{
 
 /* order container */
 
-.order-container{
+.order-container {
+    grid-area: order;
+    width: 90%;
+    max-width: 500px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-flow: column nowrap;
 }
 
-.order-container img{
-    width: 500px;
-    height: 350px;
+.order-container img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
 }
 
 .order-article{
@@ -371,7 +379,8 @@ button:focus-visible{
 }
 
 footer{
-    height: 250px;
+    height: 100%;
+    height: 100vh;
     background-color: var(--color-aux);
 }
 
@@ -379,12 +388,22 @@ footer{
     width: 100%;
     height: 100%;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
     gap: 50px;
     font-family: "Karl", sans-serif;
     color: white;
+}
+
+@media (min-width: 320px) and (max-width: 1024px) {
+   .footer-container{
+    flex-flow: row wrap;
+    justify-content: start;
+    padding-left: 25px;
+    gap: 5px;
+   }
+
 }
 
 .header-footer{
@@ -441,4 +460,61 @@ footer{
 .social-networks span{
     font-weight: 600
 
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .tech-grid{
+        padding-top: 3rem;
+        width: 100%;
+        grid-template-columns: 90%;
+    }
+    .order-container img {
+        max-width: 90%;
+    }
+    .order-article {
+        width: 90%;
+    }
+    .order-header h3{
+        font-size: 15px;
+    }
+    .order-image-temu{
+        height: 80px;
+    }
+    .order-container {
+        grid-area: order;
+        width: 100%;
+        max-width: 500px;
+        /* max-height: 100%; */
+        display: flex
+    ;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+    }
+    .order-wrapper{
+      
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+             align-items: start;
+            width: 90%;
+        }
+        .tech-container{
+            width: 100%;
+
+        }
+        .tech-container h1 {
+            width: 90%;
+            font-size: 25px;
+    }
+    .form-container{
+        width: 90%;
+    }
+    .services-features-container h2 {
+    text-align: center;
+    }
+    .services-features-container {
+        width: 90%;
+        margin: 0 auto;
+    }
 }
