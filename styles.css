@@ -133,7 +133,6 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 .tech-container h1 {
@@ -410,9 +409,10 @@ footer {
 }
 
 @media (min-width: 320px) and (max-width: 1024px) {
-    footer{
+    footer {
         height: 500px;
     }
+
     .footer-container {
         flex-flow: row wrap;
         justify-content: start;
@@ -525,6 +525,7 @@ footer {
 
     .tech-container {
         width: 100%;
+        align-items: center;
 
     }
 
