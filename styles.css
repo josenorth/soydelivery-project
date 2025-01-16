@@ -99,7 +99,6 @@ header {
 
 .tech-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 1fr);
     min-height: 60vh;
     justify-content: space-evenly;
     grid-template-areas: "tech order";
@@ -408,6 +407,22 @@ footer {
     color: white;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+    .tech-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "order"
+            "tech";
+        margin: 0;
+        justify-items: center;
+    }
+    .tech-container h1{
+        text-align: center;
+        width: 100%;
+    }
+  }
+
 @media (min-width: 320px) and (max-width: 1024px) {
     footer {
         height: 500px;
@@ -491,11 +506,11 @@ footer {
     }
 
     .order-container img {
-        max-width: 90%;
+        max-width: 100%;
     }
 
     .order-article {
-        width: 90%;
+        width: 100%;
     }
 
     .order-header h3 {
@@ -530,12 +545,13 @@ footer {
     }
 
     .tech-container h1 {
-        width: 90%;
+        width: 100%;
         font-size: 25px;
+        text-align: center;
     }
 
     .form-container {
-        width: 90%;
+        width: 100%;
     }
 
     .services-features-container h2 {
@@ -545,5 +561,8 @@ footer {
     .services-features-container {
         width: 90%;
         margin: 0 auto;
+    }
+    .order-content{
+        align-items: start;
     }
 }
