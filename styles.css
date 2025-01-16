@@ -611,3 +611,17 @@ footer {
     height: 100%;
 }
 
+@media (min-width: 320px) and (max-width: 480px) {
+  
+    .contact-container{
+        flex-flow: column wrap;
+        padding: 35px;
+        justify-content: center;
+        align-items: center;
+    }
+    .contact-wrapper{
+        flex-flow: column wrap;
+        width: 100%;
+        gap: 15px;
+    }
+  }
