@@ -84,6 +84,7 @@ header {
 
     .bars-icon {
         display: block;
+        z-index: 50;
     }
 }
 
@@ -408,7 +409,7 @@ footer {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  
+
     .tech-grid {
         grid-template-columns: 1fr;
         grid-template-areas:
@@ -417,11 +418,12 @@ footer {
         margin: 0;
         justify-items: center;
     }
-    .tech-container h1{
+
+    .tech-container h1 {
         text-align: center;
         width: 100%;
     }
-  }
+}
 
 @media (min-width: 320px) and (max-width: 1024px) {
     footer {
@@ -562,7 +564,8 @@ footer {
         width: 90%;
         margin: 0 auto;
     }
-    .order-content{
+
+    .order-content {
         align-items: start;
     }
 }
@@ -571,24 +574,24 @@ footer {
 
 .contact-container {
     padding: 100px;
-    display: flex
-;
+    display: flex;
     justify-content: center;
 }
+
 .contact-wrapper {
-    display: flex
-;
+    display: flex;
     width: 60%;
     gap: 30px;
     padding-bottom: 25px;
 }
+
 .contact-img {
-    display: flex
-;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-.contact-wrapper h1{
+
+.contact-wrapper h1 {
     margin: 0;
     font-size: 28px;
     color: var(--color-primary);
@@ -596,32 +599,143 @@ footer {
     font-style: italic;
 }
 
-.contact-info{
+.contact-info {
     font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-weight:900;
+    font-weight: 900;
 }
-.contact-info p{
+
+.contact-info p {
     font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-weight:400;
+    font-weight: 400;
     font-size: 18px;
 }
 
-.contact-img img{
+.contact-img img {
     width: 100%;
     height: 100%;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-  
-    .contact-container{
+
+    .contact-container {
         flex-flow: column wrap;
         padding: 35px;
         justify-content: center;
         align-items: center;
     }
-    .contact-wrapper{
+
+    .contact-wrapper {
         flex-flow: column wrap;
         width: 100%;
         gap: 15px;
     }
-  }
+}
+
+
+/* mobile nav section */
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .header-container {
+        position: relative;
+    }
+
+    .nav-mobile-container {
+        position: fixed;
+        width: 31vh;
+        height: 100vh;
+        transform: translateX(-100%);
+        left: 0;
+        top: 0;
+        background-color: var(--color-primary);
+        z-index: 10;
+        animation: nav-anim-out;
+        animation-duration: 300ms;
+    }
+
+    .nav-mobile {
+        background-color: var(--color-primary);
+        color: white;
+        display: flex;
+        flex-flow: column nowrap;
+        position: absolute;
+        gap: 15px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .nav-mobile ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding-left: 40px;
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .nav-mobile ul li {
+        list-style: none;
+        padding: 0;
+
+    }
+
+    .nav-mobile ul li a {
+        color: white;
+        text-decoration: none;
+
+    }
+
+    .nav-bars {
+        position: relative;
+    }
+
+    .nav-logo {
+        display: flex;
+        flex-flow: row nowrap;
+        width: 100%;
+        height: 19%;
+        padding-left: 1rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #opt-in {
+        opacity: 0;
+    }
+
+    #opt-in:checked+.nav-mobile-container {
+        display: block;
+        animation: nav-anim-in forwards;
+        animation-duration: 300ms;
+    }
+
+    input[type="checkbox"] {
+        color: red;
+        background-color: red;
+        position: absolute;
+        right: 20px;
+        z-index: 51;
+    }
+
+    @keyframes nav-anim-in {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(0vh);
+        }
+    }
+
+    @keyframes nav-anim-out {
+        0% {
+            transform: translateX(0vh);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+}
